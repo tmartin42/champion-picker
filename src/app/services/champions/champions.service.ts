@@ -14,6 +14,6 @@ export class ChampionsService {
   constructor(private http: HttpClient) {}
 
   getChampions (): any {
-    return this.http.get<any>('http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json');
+    return this.http.get<any>('https://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json');
   }
 }
