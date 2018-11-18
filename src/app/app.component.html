@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let role of roles">
+    <pre>{{role | json}}</pre>
+  </li>
+</ul>
+
+<button (click)="openModal()" >addRole</button>
+<app-modal-role (close)="closeModal()" (validate)="addRole($event)" *ngIf="modalOpen"></app-modal-role>
