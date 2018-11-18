@@ -1,0 +1,102 @@
+
+.cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 42px;
+  color: #d0cecb;
+  font-family: "Constantia","Palatino","Georgia",serif;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  letter-spacing: 1px;
+  margin: 0px;
+  font-weight: 400;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 30px;
+}
+
+h1:after {
+  content: '';
+
+  border: 0 !important;
+  margin: 10px 0px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background-image: url(../assets/img/sprite-master-f092f118123c35787b367f855ea0125b.png);
+  background-position: -993px -69px;
+  width: 125px;
+  height: 3px;
+}
+
+.rolesCont {
+  display: flex;
+  z-index: 2;
+  position: relative;
+}
+
+.role {
+  margin: 0px 10px;
+  padding: 5px;
+  background-color: rgba(0,0,0,0.65);
+  border: 1px solid #31302B;
+  border-radius: 2px;
+  min-width: 250px;
+  max-height: 500px;
+}
+
+.role .titleCont{
+  background-color: #553621;
+  font-family: "Constantia","Palatino","Georgia",serif;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  border: 1px solid black;
+  outline: 1px solid #553621;
+  padding: 0px 10px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.titleCont h2 {
+  color: #CAB5A2;
+  font-size: 28px;
+  margin-left: 5px;
+  margin-top: -2px;
+}
+
+.role .titleCont img {
+  width: 30px;
+  height: 30px;
+}
+
+h3 {
+  margin: 15px 5px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  display: block;
+  position: relative;
+}
+
+h3:after {
+  content: '';
+  display: block;
+  position: absolute;
+
+  bottom: -5px;
+  left: 5px;
+
+  width: calc(100% - 10px);
+  height: 1px;
+  
+  background: #564628;
+  border-radius: 3px;
+
+}

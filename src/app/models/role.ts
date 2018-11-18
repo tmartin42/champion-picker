@@ -1,6 +1,7 @@
-import { Champion } from './champion';
+import { Category } from './category';
 
 export class Role {
   name: string;
-  champions: Champion[];
+  img: string;
+  categories: Category[];
 }

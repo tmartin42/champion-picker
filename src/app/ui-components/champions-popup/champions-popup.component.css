@@ -1,0 +1,75 @@
+
+.championsPopupCont {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3;
+
+  bottom: -250px;
+  left: 0;
+
+  width: 100%;
+  transition: bottom 0.4s ease;
+}
+
+.championsPopupCont.opened {
+  bottom: 0px;
+}
+
+button {
+  display: block;
+  background-color: #553621;
+  font-family: "Constantia","Palatino","Georgia",serif;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  border: 1px solid black;
+  outline: 1px solid #553621;
+  padding: 0px 20px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  color: #CAB5A2;
+  font-size: 28px;
+  width: fit-content;
+  margin-bottom: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.championsPopup {
+  height: 250px;
+  padding-top: 15px;
+  width: 100%;
+  background: rgba(0,0,0,.6);
+  border-top: 1px solid rgba(148,114,77,.3);
+}
+
+span {
+  padding: 0px 10px;
+  height: 36px;
+}
+
+.fa, .fas {
+  font-weight: 700;
+  font-size: 22px;
+  height: 20px;
+  transform: rotate(180deg);
+  transition: transform 0.4s ease;
+}
+
+.opened .fa, .opened .fas {
+  transform: rotate(0deg);
+}
+
+.championsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+img {
+  width: 50px;
+  margin: 2px 2px;
+}

@@ -1,8 +1,25 @@
-<ul>
-  <li *ngFor="let role of roles">
-    <pre>{{role | json}}</pre>
-  </li>
-</ul>
+<div class="blur"></div>
+<app-champions-popup [champions]="champions"></app-champions-popup>
+<div class="cont">
+  <h1>Champion picker</h1>
+  <div class="rolesCont">
+    <div class="role" *ngFor="let role of roles">
+      <div class="titleCont">
+        <img *ngIf="role.img" [src]="'../assets/img/roles/' + role.img + '.png'"  >
+        <h2>{{role.name}}</h2>
+      </div>
+      <div class="category" *ngFor="let category of role.categories">
+        <div class="category">
+          <h3>{{category.name}}</h3>
+          <div class="champions">
+            <div class="champion" *ngFor="let champion of category.champions"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <button (click)="openModal()" >addRole</button>
 <app-modal-role (close)="closeModal()" (validate)="addRole($event)" *ngIf="modalOpen"></app-modal-role>

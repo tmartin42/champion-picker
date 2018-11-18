@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Role } from '../models/role';
+import { Role } from '../../models/role';
 import { FormsModule} from '@angular/forms';
 
 @Component({
@@ -23,7 +23,7 @@ export class ModalRoleComponent implements OnInit {
 
   public onValidate() {
     if (this.name !== '') {
-      this.validate.emit({name: this.name, champions: []});
+      this.validate.emit({name: this.name, img: "Fill_icon" , categories: [{name: 'test1', champions: []},{name: 'test3', champions: []},{name: 'tes41', champions: []}]});
     }
   }
   public onCancel() {

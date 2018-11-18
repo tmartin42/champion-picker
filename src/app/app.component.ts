@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { Role } from './models/role';
+import { ChampionsService } from './services/champions/champions.service';
+import { RolesService } from './services/roles/roles.service';
 
 @Component({
   selector: 'app-root',
@@ -12,30 +14,39 @@ export class AppComponent implements OnInit{
   title = 'champion-picker';
 
   roles: any[];
+  champions: any;
 
   modalOpen: boolean;
 
-  constructor (private db: AngularFireDatabase) {
+  constructor (private championsService: ChampionsService,
+              private rolesService: RolesService) {
 
   }
 
   ngOnInit () {
     this.modalOpen = false;
-    this.db.list('/roles').valueChanges().subscribe(
+    this.rolesService.getRoles().subscribe(
       res => {
         console.log(res);
         this.roles = res;
-      },
-      err => {
+      }, err => {
         console.log(err);
       }
     );
+    this.championsService.getChampions().subscribe (
+      res => {
+        this.champions = res;
+        console.log(res);
+      }, err => {
+        console.log(err);
+      }
+    )
   }
 
   public addRole(role: Role) {
     console.log(role);
     if (this.roles.length) {
-      this.db.list('/roles').push(role);
+      this.rolesService.addRole(role);
     }
     this.modalOpen = false;
   }

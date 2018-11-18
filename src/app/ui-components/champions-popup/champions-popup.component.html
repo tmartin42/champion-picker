@@ -1,0 +1,10 @@
+<div class="championsPopupCont" [class.opened]="opened" *ngIf="champions">
+  <button (click)="opened = !opened"><i class="fas fa-angle-down"></i><span>champions</span><i class="fas fa-angle-down"></i></button>
+  <div class="championsPopup">
+    <div class="championsWrapper">
+      <div class="champion" *ngFor="let champion of champions.data |  keyvalue">
+        <img [src]="'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + champion.value.image.full">
+      </div>
+    </div>
+  </div>
+</div>
