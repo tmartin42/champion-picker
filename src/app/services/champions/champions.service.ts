@@ -13,7 +13,11 @@ export class ChampionsService {
 
   constructor(private http: HttpClient) {}
 
-  getChampions (): any {
-    return this.http.get<any>('https://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json');
+  getChampions (version): Observable<any> {
+    return this.http.get<any>(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`);
+  }
+
+  getVersion(): Observable<any> {
+    return this.http.get<any>(`https://ddragon.leagueoflegends.com/realms/euw.json`);
   }
 }

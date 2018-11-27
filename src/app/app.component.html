@@ -1,18 +1,18 @@
 <div class="blur"></div>
-<app-champions-popup [champions]="champions"></app-champions-popup>
+<app-champions-popup [champions]="champions" [version]="version" *ngIf="version"></app-champions-popup>
 <div class="cont">
   <h1>Champion picker</h1>
   <div class="rolesCont">
-    <div class="role" *ngFor="let role of roles">
+    <div class="role" *ngFor="let role of roles; let j = index">
       <div class="titleCont">
         <img *ngIf="role.img" [src]="'../assets/img/roles/' + role.img + '.png'"  >
         <h2>{{role.name}}</h2>
       </div>
-      <div class="category" *ngFor="let category of role.categories">
-        <div class="category">
+      <div class="category" *ngFor="let category of role.categories; let i = index">
+        <div class="category" droppable (onDrop)="onItemDrop($event, j, i)">
           <h3>{{category.name}}</h3>
           <div class="champions">
-            <div class="champion" *ngFor="let champion of category.champions"></div>
+            <div class="champion" *ngFor="let champion of category.champions">{{champion.name}}</div>
           </div>
         </div>
       </div>

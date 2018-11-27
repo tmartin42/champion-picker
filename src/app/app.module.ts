@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RoleEditComponent } from './ui-components/role-edit/role-edit.component';
 import { ChampionsPopupComponent } from './ui-components/champions-popup/champions-popup.component';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ChampionsPopupComponent } from './ui-components/champions-popup/champio
   imports: [
     BrowserModule,
     FormsModule,
+    NgDragDropModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule
   ],

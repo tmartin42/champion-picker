@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
 
   roles: any[];
   champions: any;
-
+  version: string;
   modalOpen: boolean;
 
   constructor (private championsService: ChampionsService,
@@ -33,14 +33,21 @@ export class AppComponent implements OnInit{
         console.log(err);
       }
     );
-    this.championsService.getChampions().subscribe (
-      res => {
-        this.champions = res;
-        console.log(res);
+    this.championsService.getVersion().subscribe (
+      versionRes => {
+        this.version = versionRes;
+        this.championsService.getChampions(versionRes.n.champion).subscribe (
+        res => {
+          this.champions = res;
+          console.log(res);
+        }, err => {
+          console.log(err);
+        });
       }, err => {
         console.log(err);
       }
-    )
+    );
+
   }
 
   public addRole(role: Role) {
@@ -57,5 +64,16 @@ export class AppComponent implements OnInit{
 
   public closeModal() {
     this.modalOpen = false;
+  }
+
+  public onItemDrop(e, roleId, categoryId) {
+   console.log(e);
+   let champion = {name: e.dragData.key, img: "placeholder"};
+   console.log(this.roles[roleId].categories[categoryId]);
+   if (!this.roles[roleId].categories[categoryId].champions) {
+      this.roles[roleId].categories[categoryId].champions = [];
+   }
+    this.roles[roleId].categories[categoryId].champions.push(champion);
+    // this.rolesService.addChampion()
   }
 }

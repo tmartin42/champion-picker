@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-champions-popup',
@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ChampionsPopupComponent implements OnInit {
 
   @Input() champions: any;
-
+  @Input() version: any;
   public opened: boolean = false;
 
   constructor() { }
@@ -16,5 +16,6 @@ export class ChampionsPopupComponent implements OnInit {
   ngOnInit() {
     console.log(this.champions);
   }
+
 
 }
