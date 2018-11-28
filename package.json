@@ -29,6 +29,7 @@
     "angularfire2": "^5.1.0",
     "core-js": "^2.5.4",
     "firebase": "^5.5.8",
+    "hoek": "^6.0.4",
     "ng-drag-drop": "^5.0.0",
     "ngh": "^0.2.12",
     "rxjs": "~6.3.3",
