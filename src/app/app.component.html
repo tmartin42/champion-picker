@@ -1,6 +1,6 @@
 <div class="blur"></div>
-<app-champions-popup [champions]="champions" [version]="version" *ngIf="version"></app-champions-popup>
-<div class="cont">
+<div class="cont" *ngIf="authService.getAuth() | async as user; else showLogin">
+  <app-champions-popup [champions]="champions" [version]="version" *ngIf="version"></app-champions-popup>
   <h1>Champion picker</h1>
   <div class="rolesCont">
     <div class="role" *ngFor="let role of roles; let j = index">
@@ -19,6 +19,12 @@
     </div>
   </div>
 </div>
+<ng-template #showLogin>
+  <div class="cont">
+    <h1>Vous n'êtes pas connecté</h1>
+    <button (click)="authService.login()">Clickez ici pour vous connecter</button>
+  </div>
+</ng-template>
 
 
 <button (click)="openModal()" >addRole</button>

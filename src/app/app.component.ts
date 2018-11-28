@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Role } from './models/role';
 import { ChampionsService } from './services/champions/champions.service';
 import { RolesService } from './services/roles/roles.service';
+import { AuthService } from './services/firebase/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ export class AppComponent implements OnInit{
   modalOpen: boolean;
 
   constructor (private championsService: ChampionsService,
-              private rolesService: RolesService) {
+              private rolesService: RolesService,
+              public authService: AuthService) {
 
   }
 
